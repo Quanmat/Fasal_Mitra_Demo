@@ -1,0 +1,32 @@
+{% extends "base_email.html" %} {% load static %} {% block title %}{{
+notification.title }} - Fasal Mitra{% endblock %} {% block content %}
+<h1>{{ notification.title }}</h1>
+
+<img
+  src="{% static 'images/im1.jpg' %}"
+  alt="Farmer in the field"
+  class="illustration"
+/>
+
+<p>Dear {{ user.first_name }} {{ user.last_name }},</p>
+<p>{{ notification.message }}</p>
+
+{% if notification.action_url %}
+<p style="text-align: center; margin: 40px 0">
+  <a href="{{ notification.action_url }}" class="button"
+    >{{ notification.action_text|default:"View Details" }}</a
+  >
+</p>
+{% endif %}
+
+<div class="divider"></div>
+
+{% if notification.additional_details %}
+<div class="additional-details">{{ notification.additional_details|safe }}</div>
+{% endif %}
+
+<div class="signature">
+  Best regards,<br />
+  <strong>The Fasal Mitra Team</strong>
+</div>
+{% endblock %}

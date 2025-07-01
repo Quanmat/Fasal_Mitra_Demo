@@ -1,0 +1,44 @@
+{% extends "base_email.html" %} {% load static %} {% block title %}Welcome to
+Fasal Mitra{% endblock %} {% block content %}
+<h1>Welcome to <span class="gradient-text">Fasal Mitra</span>!</h1>
+<p class="welcome-subtitle">
+  We're delighted to have you join our agricultural community.
+</p>
+
+<img
+  src="{% static 'images/im1.jpg' %}"
+  alt="Farmer in the field"
+  class="illustration"
+/>
+
+<p>Dear {{ user.first_name }} {{ user.last_name }},</p>
+<p>
+  We're thrilled to welcome you to Fasal Mitra, your trusted companion in
+  agriculture. Thank you for joining our community of farmers, buyers, and
+  agricultural companies.
+</p>
+<div class="divider"></div>
+<p>Here's what you can do with your new account:</p>
+<ul>
+  <li><span class="list-icon"></span>Connect with local farmers and buyers</li>
+  <li><span class="list-icon"></span>Access real-time market prices</li>
+  <li><span class="list-icon"></span>Get personalized crop recommendations</li>
+  <li>
+    <span class="list-icon"></span>Stay updated with the latest agricultural
+    news and tips
+  </li>
+</ul>
+<!-- <p style="text-align: center; margin: 40px 0">
+  <a href="{{ dashboard_url }}" class="button">Explore Your Dashboard</a>
+</p> -->
+<div class="divider"></div>
+<p>
+  If you have any questions or need assistance, don't hesitate to reach out to
+  our support team.
+</p>
+<p>Happy farming!</p>
+<div class="signature">
+  Best regards,<br />
+  <strong>The Fasal Mitra Team</strong>
+</div>
+{% endblock %}

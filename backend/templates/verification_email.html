@@ -1,0 +1,44 @@
+{% extends "base_email.html" %} {% load static %} {% block title %}Verify Your Email - Fasal
+Mitra{% endblock %} {% block content %}
+<h1>Verify Your <span class="gradient-text">Email Address</span></h1>
+
+<img
+  src="{% static 'images/im1.jpg' %}"
+  alt="Farmer in the field"
+  class="illustration"
+/>
+
+<p>Dear {{ user.first_name }} {{ user.last_name }},</p>
+<p>
+  Thank you for signing up with Fasal Mitra. To complete your registration use
+  the code below:
+</p>
+
+<div class="copy-container"></div>
+  <p>Click below to copy it:</p>
+  <div class="copy-link" onclick="copyToClipboard('{{ token }}')">
+    {{ token }}
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<p>
+  This verification token will expire in 1 hours. If you didn't create an
+  account with Fasal Mitra, please ignore this email.
+</p>
+<div class="signature">
+  Best regards,<br />
+  <strong>The Fasal Mitra Team</strong>
+</div>
+
+<script>
+  function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(function() {
+      alert('Copied to clipboard');
+    }, function(err) {
+      console.error('Could not copy text: ', err);
+    });
+  }
+</script>
+{% endblock %}

@@ -1,0 +1,6 @@
+node_modules/
+.env
+.next/
+dist/
+build/
+# add anything else you want to keep out
